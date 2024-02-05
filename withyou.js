@@ -51,12 +51,12 @@ $(()=>{
     }
   });
   textani.to(".text01",{y:-30, autoAlpha:0, duration:0.3})
-  .to(".text_with", {"top":"15%", duration: 1})
-  .to(".text_u", { autoAlpha:1, duration:1}, "<")
-  .to(".text_you", {"bottom" : "80%", autoAlpha:1, duration:1}, "<")
-  .to(".text_with", {"left": "34%", scale: 0.4, duration: 0.7})
+  .to(".text_with", {"top":"22%", duration: 1})
+  .to(".text_u", { autoAlpha:1, duration:1.5}, "<")
+  .to(".text_you", {"bottom" : "71%", autoAlpha:1, duration:1}, "<")
+  .to(".text_with", {"left": "40%", duration: 0.7})
   .to(".text_you", {"right": "30%", autoAlpha:0, duration:0.7}, "<")
-  .to("text_with", ".text_you", {deley:2})
+  .to("text_with", ".text_you", {deley:3})
   
 })//readyfn
 

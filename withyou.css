@@ -141,6 +141,10 @@ img {width: 100%;} button {outline: none;}
   color: #fff;
   font-weight: bold;
 }
+.container .textWrap.text_u {
+  background: url(./logo_u.png) no-repeat center center/cover;
+  width: 500px; height: 214px;
+}
 .container .textWrap strong.nonewith {font-size: 100px;}
 .container .textWrap strong.noneu {font-size: 400px;}
 .container .textWrap strong.noneyou {font-size: 100px;}
