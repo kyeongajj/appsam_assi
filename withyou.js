@@ -47,7 +47,7 @@ $(()=>{
       endTrigger: ".text_you",
       end:"+=1200px",
       scrub:1,
-      markers:true
+      // markers:true
     }
   });
   textani.to(".text01",{y:-30, autoAlpha:0, duration:0.3})
