@@ -44,8 +44,8 @@ $(()=>{
       start:"20% 30%",
       // end:"bottom 80%",
       pin:true,
-      endTrigger: ".text_you",
-      end:"+=1200px",
+      endTrigger: ".text_u",
+      end:"+=1400px",
       scrub:1,
       // markers:true
     }
@@ -56,7 +56,8 @@ $(()=>{
   .to(".text_you", {"bottom" : "71%", autoAlpha:1, duration:1}, "<")
   .to(".text_with", {"left": "40%", duration: 0.7})
   .to(".text_you", {"right": "30%", autoAlpha:0, duration:0.7}, "<")
-  .to("text_with", ".text_you", {deley:3})
+  .to("text_with", {deley:3, duration:3})
+
   
 })//readyfn
 
