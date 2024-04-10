@@ -13,6 +13,31 @@ $(()=>{
     $(".menuBtn").toggleClass('style');
     $('.allMenu').toggleClass('on')
   });
+
+  //header_navbar
+  $(window).on("load resize", function(){
+    let navHeight = $('header').outerHeight();
+    let lastsTop = 0;
+
+    function screenScroll(){
+      let sTop = $(this).scrollTop();
+
+      if(sTop > lastsTop && sTop > navHeight){ //현재 스크롤위치가 lastsTop보다 클때, 현재스크롤위치가 헤더의 세로크기보가 클때,
+        //scroll_Down
+        $('.header').removeClass('navUp').addClass('navDown');
+        $('#gnb > ul > li').removeClass('on');
+      }else{
+        //scroll_Up
+        if(sTop + $(window).height() < $(document).height()) {
+          $('.header').removeClass('navDown').addClass('navUp');
+        }
+      }
+    };
+
+    $(window).on("scroll", function(){
+      screenScroll();
+    });
+  })
   
   
   gsap.to(".rightround",{
@@ -27,6 +52,7 @@ $(()=>{
     duration:3
   });
 
+
   let textani = gsap.timeline({
     scrollTrigger:{
       trigger:".content01",
@@ -40,15 +66,13 @@ $(()=>{
   });
   textani.to(".text_top",{y:-30, autoAlpha:0, duration:0.5})
   .to(".sticky_box", {y:-30, autoAlpha:0, duration:1})
-  .to(".text_with", {"top":"20%", duration: 1})
+  .to(".text_with", {"top":"15%", duration: 1})
   .to(".text_u", { autoAlpha:1, duration:1.5}, "<")
   .to(".text_you", {"bottom" : "71%", autoAlpha:1, duration:1}, "<")
-  .to(".text_with", {"left": "37%", duration: 1.2})
+  .to(".text_with", {"left": "50%", "transform" : "translateX(-50%)", duration: 1.2})
   .to(".text_you", {"right": "30%", autoAlpha:0, duration:1.2}, "<")
-  
   .to("text_with", {deley:1, duration:2})
   
-
 
   let textani02 = gsap.timeline({
     scrollTrigger:{

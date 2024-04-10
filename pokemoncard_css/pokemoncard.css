@@ -1,0 +1,30 @@
+*{margin: 0; padding: 0;}
+
+.container {
+  width: 220px; height: 310px;
+  position: relative; top: 20px; left: 20px;
+  transition: all 0.1s;
+}
+.pcard {
+  width: 220px; height: 310px;
+  background-size: cover;
+  background-image: url(./TG22_hires.png);
+}
+.overlay{
+  position: absolute; top: 0; left: 0;
+  width: 220px; height: 310px;
+  background: linear-gradient(105deg,
+    transparent 40%, rgba(190, 208, 243, 0.65) 45%,
+    rgba(132, 50, 255, 0.5) 50%, transparent 54%);
+  background-size: 150% 150%;
+  background-position: 100%;
+  /* filter:::반짝이효과 */
+  filter: brightness(1) opacity(0.6);
+  mix-blend-mode: color-dodge;
+}
+.overlay2{
+  position: absolute; top: 0; left: 0;
+  width: 220px; height: 310px;
+  filter: brightness(1) opacity(0.6);
+  mix-blend-mode: color-dodge;
+}

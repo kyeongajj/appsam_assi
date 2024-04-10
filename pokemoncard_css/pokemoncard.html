@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokemonCard</title>
+
+  <link rel="stylesheet" href="./pokemoncard.css">
+</head>
+<body>
+  <div class="container">
+    <div class="pcard"></div>
+    <div class="overlay"></div>
+    <div class="overlay2"></div>
+  </div>
+
+  <!-- 
+    1.카드이미지 띄우기
+    2.카드 위에서 마우스 움직이면 카드가 회전하기
+    3.마우스가 +200px될때, rotateY(-20deg)으로 회전해라
+   -->
+  <script>
+    let container = document.querySelector(".container");
+    let overlay = document.querySelector(".overlay");
+    let overlay2 = document.querySelector(".overlay2");
+    //마우스를 움직일때...(효과넣기)
+    container.addEventListener("mousemove", (e)=>{
+      //컨테이너 위에서 "마우스무브"하면 회전해라~
+      let x = e.offsetX;
+      let y = e.offsetY;
+      console.log(x, y);
+
+      let rotateY = -1/5 * x + 20;
+      let rotateX = 4/30 * y - 20;
+      //let rotateY = a*x + b ::: -20 = 200a + b, 20 = 0a + b (1차함수 적용)
+
+      container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      //마우스 좌표에 따라 계속 변하게 회전값 조정.
+      //마우스 x좌표가 +200이면, rotateY(-20deg)
+      //마우스 x좌표가 0이면, rotateY(20deg)
+
+      overlay.style = `background-position : ${x/5 + y/5}%;`;
+      overlay2.style = `background : radial-gradient(ellipse at ${x/5}% ${y/3}%, rgba(255, 255, 255, 0.6), rgba(0, 0, 0));`;
+      // radial-gradient( shape size at position, color1, color2, ..., color3 )
+      
+    })
+    //마우스아웃 했을때...(효과없애기)
+    container.addEventListener("mouseout", ()=>{
+      container.style = `transform : perspective(350px) rotateX(0) rotateY(0)`;
+      overlay.style = `filter : opacity(0);`;
+      overlay2.style = `background : none;`;
+    })
+  </script>
+</body>
+</html>

@@ -5,26 +5,52 @@ img {width: 100%;} button {outline: none;}
 .hidden {text-indent: -999999px;}
 .hiddenspan {opacity: 0;z-index: -100;}
 
+/*layout_class*/
+.divContainer {
+  position: relative;
+  width: 100%; height: 100%; 
+  padding: 0 200rem 0 200rem;
+}
+.absoluteCenter {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.flexCenter {
+  display: flex; align-items: center; justify-content: center;
+}
+.vh100 {
+  height: 100vh; height: calc(var(--vh, 1vh) * 100);
+}
+.stroke {
+  color: transparent; 
+}
+
+
 .warp {
   position: relative;
   left: 0; top: 0;
   width: 100%; height: auto;
 }
 .header {
-  position: absolute; top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
+  transform: translateY(0);
   width: 100%;
   display: flex;
   justify-content: center; align-items: center;
   padding: 0 200rem;
   z-index: 10;
 }
+.header.navDown { transform: translateY(-100%); }
+.header.navUp { transform: translateY(0); }
+
 .header header {
   display: flex; justify-content: space-between;
   border-bottom: 0.3px solid #ccc;
-  width: 100%
+  width: 100%;
 }
+
 .withlogo {
-  background-image: url(./logo.svg);
+  background-image: url(../images/logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 10%;
@@ -61,6 +87,8 @@ img {width: 100%;} button {outline: none;}
   transition: all 0.4s ease;
 }
 #gnb > ul > li.inMenuWrap.show .inMenu {max-height: 300px;}
+
+
 #gnb .withHeader .inMenu a {
   height: 0;  font-size: 13px;
 }
@@ -149,7 +177,7 @@ img {width: 100%;} button {outline: none;}
   content: "";
   position: absolute; top: 0%;left: 0%;
   transform: translate(-50%, -50%);
-  background: url(./smile_txt.svg) no-repeat center center/cover;
+  background: url(../images/smile_txt.svg) no-repeat center center/cover;
   width: 100%;height: 100%;
   opacity: 0.7;
   animation: rotate 10s linear infinite;
@@ -160,7 +188,7 @@ img {width: 100%;} button {outline: none;}
   position: absolute; 
   top: 35%;left: 35%;
   transform: translate(-50%, -50%);
-  background: url(./icon_smile.svg) no-repeat center center/cover;
+  background: url(../images/icon_smile.svg) no-repeat center center/cover;
   width: 30%;height: 30%;
   opacity: 0.8;
   animation: rotate 10s linear infinite;
@@ -176,10 +204,6 @@ img {width: 100%;} button {outline: none;}
   position: relative;top: 0;left: 0;
   width: 100%; height: 100vh;
 }
-.content01 .text_with {
-  width: 50%; margin-right: 60px;
-  color: #fff;
-}
 .content01 .textWrap {
   color: #fff;
 }
@@ -188,7 +212,7 @@ img {width: 100%;} button {outline: none;}
   padding-left: 30px;
 }
 .content01 .textWrap.text_u {
-  background: url(./logo_u.png) no-repeat center center/cover;
+  background: url(../images/logo_u.png) no-repeat center center/cover;
   width: 500px; height: 214px;
 }
 .content01 .textWrap strong.nonewith {font-size: 140px;}
@@ -197,7 +221,6 @@ img {width: 100%;} button {outline: none;}
 .content01 .textWrap p.text01 {
   font-size: 12px;
   padding-left: 20px;
-  
 }
 
 .content01 .textWrap.text_with{
@@ -251,7 +274,7 @@ img {width: 100%;} button {outline: none;}
   position: absolute; bottom: -5%;left: 49.9%;
   transform: translateX(-50%);
   width: 25px; height: 20px;
-  background: url(./scr_down.svg) no-repeat center center/contain;
+  background: url(../images/scr_down.svg) no-repeat center center/contain;
   animation: arrow 0.7s ease infinite alternate-reverse;
 }
 @keyframes arrow {
@@ -336,3 +359,4 @@ img {width: 100%;} button {outline: none;}
 .content02 .cont2 .text_box .text03{
   margin-top: 30px;
 }
+
