@@ -12,7 +12,7 @@ const options = {
   //보더_두께 
   border: 3,
   //Row_height
-  rowHeight: 45,
+  rowHeight: 150,
   //화살표_칼라 {'시작', '끝', '몸통'}/ 보더_칼라
   color:{
     'criticla':'#ee253b', //빨강색
@@ -25,6 +25,7 @@ const options = {
 
 document.addEventListener("DOMContentLoaded", function() {
   if(options){
+    //노드들의 칼라/모양/두께 변경
     console.log(Object.keys(options.shape));
     //[ 'rectangle', 'diamond', 'circle' ]
 
@@ -47,8 +48,17 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     })
 
+    //title텍스트 칼라 변경
     let title = $('h1');
     title.css('color', options.color['criticla']);
+
+    //rowHeight클래스 추가로 row의 높이값 조절
+    let rows = $('.flow_table tr');
+    $(rows[3]).addClass('rowHeight');
+    if(rows.hasClass('rowHeight')){
+      $('.rowHeight').css('height', options.rowHeight + 'px');
+    }
+    
     
   }
 });
