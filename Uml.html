@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Table Example</title>
+<style>
+  .wrap {
+    width: 100%;
+    height: 100%;
+  }
+  .flow_table {
+    width: 100%;
+    height: 100%;
+  }
+  .flow_cell {
+    border: 1px solid #ddd; /* Add border for better visibility */
+    text-align: center; /* Center the text inside cells */
+  }
+  .node_shape {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+  }
+  .circle {
+    border-radius: 50%;
+  }
+  .rectangle {
+    border-radius: 5px;
+  }
+  .diamond {
+    width: 60px;
+    height: 60px;
+    background: white;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .critical {
+    background-color: red;
+  }
+  .normal {
+    background-color: green;
+  }
+  .minor {
+    background-color: yellow;
+  }
+  .gray {
+    background-color: gray;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <table class="flow_table">
+    <colgroup>
+      <col style="width: 30px;">
+      <col style="width: 40%;">
+      <col>
+      <col>
+      <col>
+      <col>
+      <col style="width: 30px;">
+    </colgroup>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+</div>
+
+<script>
+function createNode(content, shape, type, additionalClass = '') {
+  const node = document.createElement('div');
+  node.className = `node_shape ${shape} ${type} ${additionalClass}`;
+  node.innerHTML = `<span>${content}</span>`;
+  return node;
+}
+
+function populateTable() {
+  const tbody = document.getElementById('tableBody');
+  const rows = 5; // Number of rows
+  const cols = 7; // Number of columns
+
+  for (let i = 0; i < rows; i++) {
+    const tr = document.createElement('tr');
+    for (let j = 0; j < cols; j++) {
+      const td = document.createElement('td');
+      td.className = 'flow_cell nodes';
+
+      // Define custom nodes based on specific row and column
+      if (i === 0 && j === 0) td.appendChild(createNode('유큐브', 'circle', 'gray', 'node_icon'));
+      if ((i === 0 && j === 1) || (i === 0 && j === 3)) td.appendChild(createNode('사각형rectangle이라고말하는것이다다다다다', 'rectangle', 'critical'));
+      if (i === 0 && j === 2) td.appendChild(createNode('APIM', 'diamond', 'normal'));
+      if (i === 0 && j === 4) td.appendChild(createNode('UCube', 'circle', 'minor'));
+      if (i === 0 && j === 5) td.appendChild(createNode('NTOSS', 'circle', 'gray', 'node_icon'));
+
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+}
+
+// Call the function to populate the table on document load
+document.addEventListener('DOMContentLoaded', populateTable);
+</script>
+
+</body>
+</html>
